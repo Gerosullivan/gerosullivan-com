@@ -1,25 +1,19 @@
-import { useEffect, useState } from 'react';
 import moment from 'moment';
-import ReactTooltip from 'react-tooltip';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import SubscribeForm from '../components/SubscribeForm.js';
 import Parser from 'rss-parser';
 
 export default function Home(props) {
-  const [showTip, setShowTip] = useState(false);
 
-  useEffect(() => {
-    setShowTip(true);
-  }, []);
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Tony Dinh</title>
+        <title>Ger O'Sullivan</title>
         <meta
           name="description"
-          content="Welcome to my corner of the internet"
+          content="Welcome to my site"
         />
         <link
           rel="apple-touch-icon"
@@ -94,82 +88,30 @@ export default function Home(props) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <script
-          defer
-          type="text/javascript"
-          src="https://api.pirsch.io/pirsch.js"
-          id="pirschjs"
-          data-code="yojqyHBKGLOMJXGFnwWwP3IIWL7E8Ohv"
-        ></script>
       </Head>
 
       <main className={styles.main}>
         <section className={styles.intro}>
-          <img className={styles.avatar} src="/tonydinh.png" />
-          <h1 className={styles.title}>Tony Dinh</h1>
-          <p>Welcome to my corner of the internet!</p>
+          <img className={styles.avatar} src="/gerosullivan.jpg" />
+          <h1 className={styles.title}>Ger O'Sullivan</h1>
+          <p>Welcome to my site!</p>
         </section>
         <div style={{ marginBottom: 30 }}>
           {[
             {
-              link: 'https://news.tonydinh.com',
+              link: 'https://articles.gerosullivan.com',
               title: (
                 <span>
                   <span style={{ marginRight: 10 }}>💌</span>
-                  Monthly Newsletter (My Story)
+                  Newsletter
                 </span>
               ),
             },
             {
-              link: 'https://typingmind.com',
+              link: 'https://twitter.com/gerosullivan',
               title: (
                 <span>
-                  <span style={{ marginRight: 10 }}>🧠</span> Typing Mind
-                  (Better UI for ChatGPT)
-                </span>
-              ),
-            },
-            {
-              link: 'https://devutils.app',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>🧰</span> Developer Toolbox
-                  (macOS app)
-                </span>
-              ),
-            },
-            {
-              link: 'https://blackmagic.so',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>✨</span> Black Magic
-                  (Twitter SaaS)
-                </span>
-              ),
-            },
-            {
-              link: 'https://xnapper.com',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>📸</span> Beautiful
-                  screenshots (macOS app)
-                </span>
-              ),
-            },
-            {
-              link: 'https://tdinh.notion.site/Tony-s-Notes-d1db498a88a9454abcc014fdd7a73f0c',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>✏️</span> Micro-blog (FAQs,
-                  Notes)
-                </span>
-              ),
-            },
-            {
-              link: 'https://twitter.com/tdinh_me',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>❤️</span> Find me on Twitter
+                  <span style={{ marginRight: 10 }}>𝕏</span> Twitter
                 </span>
               ),
             },
@@ -202,7 +144,7 @@ export default function Home(props) {
               </li>
               <li>
                 <span style={{ marginRight: '10px' }}>😻</span>
-                Cats > Dogs
+                Cats  Dogs
               </li>
             </ul>
           </section>
@@ -283,7 +225,7 @@ export default function Home(props) {
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>🎥</span>
-                  <a href="https://www.youtube.com/tonydinh">YouTube</a>
+                  <a href="https://www.youtube.com/gerosullivan">YouTube</a>
                 </div>
                 <div className={styles.subtitle}>{props.youtube}</div>
               </li>
@@ -302,7 +244,7 @@ export default function Home(props) {
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>💌</span>
-                  <a href="https://news.tonydinh.com">Newsletter</a>
+                  <a href="https://news.gerosullivan.com">Newsletter</a>
                 </div>
                 <div className={styles.subtitle}>{props.newsletter}</div>
               </li>
@@ -332,14 +274,14 @@ export default function Home(props) {
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>💵</span>
-                  <a href="https://tonydinh.gumroad.com/">Gumroad</a>
+                  <a href="https://gerosullivan.gumroad.com/">Gumroad</a>
                 </div>
                 <div className={styles.subtitle}>Products created: 3</div>
               </li>
               <li>
                 <div>
                   <span style={{ marginRight: '10px' }}>🔨</span>
-                  <a href="https://www.indiehackers.com/tonydinh">
+                  <a href="https://www.indiehackers.com/gerosullivan">
                     Indie Hackers
                   </a>
                 </div>
@@ -385,17 +327,6 @@ export default function Home(props) {
         </div>
       </main>
 
-      {showTip ? (
-        <ReactTooltip
-          multiline={true}
-          overridePosition={({ left, top }, _e, _t, node) => {
-            return {
-              top,
-              left: typeof node === 'string' ? left : Math.max(left, 0),
-            };
-          }}
-        />
-      ) : null}
       <style jsx global>{`
         html,
         body {
@@ -422,49 +353,29 @@ export default function Home(props) {
 export async function getStaticProps() {
   try {
     const parser = new Parser();
-    const [devutils, blackmagic, newsletter, youtube, tweets] =
+    const [newsletter, youtube] =
       await Promise.all([
-        parser.parseURL('https://devutils.app/changelog.rss'),
-        null, // parser.parseURL('https://newsletter.blackmagic.so/?format=rss'),
-        parser.parseURL('https://news.tonydinh.com/feed'),
+        parser.parseURL('https://articles.gerosullivan.com/feed'),
         parser.parseURL(
-          'https://www.youtube.com/feeds/videos.xml?channel_id=UCYOiXua3ot8x7D9uF7ipUPg'
-        ),
-        fetch(
-          'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
-        ).then((r) => r.json()),
+          'https://www.youtube.com/feeds/videos.xml?channel_id=UCpLVesoQwiVbKJt_H3lgmIQ'
+        )
       ]);
 
     return {
       props: {
-        devutils: `Last version: ${fromNow(
-          new Date(devutils.items[0].isoDate)
-        )}`,
-        blackmagic: `Last update: last week`,
         newsletter: `Last issue: ${fromNow(
           new Date(newsletter.items[0].isoDate)
         )}`,
         youtube: `Last video: ${fromNow(new Date(youtube.items[0].isoDate))}`,
-        tweets: `${tweets.count} tweets last 48hrs`,
         latest: [
-          ...devutils.items.map((item) => ({
-            ...item,
-            source: 'DevUtils Product Updates',
-            color: '#5ba533',
-          })),
-          // ...blackmagic.items.map((item) => ({
-          //   ...item,
-          //   source: `BlackMagic.so Product Updates`,
-          //   color: '#333333',
-          // })),
           ...newsletter.items.map((item) => ({
             ...item,
-            source: `Tony Dinh's Newsletter`,
+            source: `Ger O'Sullivan's Newsletter`,
             color: '#5383ec',
           })),
           ...youtube.items.map((item) => ({
             ...item,
-            source: `Tony Dinh's Youtube Channel`,
+            source: `Ger O'Sullivan's Youtube Channel`,
             color: '#ea3323',
           })),
         ].sort(
