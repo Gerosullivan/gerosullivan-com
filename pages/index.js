@@ -94,7 +94,7 @@ export default function Home(props) {
         <section className={styles.intro}>
           <img className={styles.avatar} src="/gerosullivan.jpg" />
           <h1 className={styles.title}>Ger O'Sullivan</h1>
-          <p>Welcome to my site!</p>
+          <p>EduTech veteran, software developer, consultant, AI enthusiast.</p>
         </section>
         <div style={{ marginBottom: 30 }}>
           {[
@@ -115,187 +115,19 @@ export default function Home(props) {
                 </span>
               ),
             },
+            {
+              link: 'https://www.linkedin.com/in/gerosullivan',
+              title: (
+                <span>
+                  <span style={{ marginRight: 10 }}>🔗</span> LinkedIn
+                </span>
+              ),
+            },
           ].map((item) => (
             <a className={styles.bio_link} key={item.link} href={item.link}>
               {item.title}
             </a>
           ))}
-        </div>
-        <div className={styles.sections}>
-          <section>
-            <h2>About Me</h2>
-            <ul className={styles.list}>
-              <li>
-                <span style={{ marginRight: '10px' }}>🧑</span>
-                29 years old
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>🇻🇳</span>
-                From Vietnam
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>👨‍💻</span>
-                Software Developer
-              </li>
-
-              <li>
-                <span style={{ marginRight: '10px' }}>🔨</span>
-                Full-time Indie Hacker
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>😻</span>
-                Cats  Dogs
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>My Products</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🧠</span>
-                  <a href="https://www.typingmind.com">TypingMind.com</a>
-                </div>
-                <div className={styles.subtitle}>A better UI for ChatGPT!</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🧰</span>
-                  <a href="https://devutils.app">DevUtils.app</a>
-                </div>
-                <div className={styles.subtitle}>{props.devutils}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎩</span>
-                  <a href="https://blackmagic.so">BlackMagic.so</a>
-                </div>
-                <div className={styles.subtitle}>{props.blackmagic}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>📸</span>
-                  <a href="https://xnapper.com">Xnapper</a>
-                </div>
-                <div className={styles.subtitle}>Released recently!</div>
-              </li>
-            </ul>
-            <h2>Code</h2>
-            <ul className={styles.list}>
-              <li>
-                <span style={{ marginRight: '10px' }}>⌨️</span>
-                <a href="https://github.com/trungdq88">GitHub</a>
-                <div className={styles.subtitle}>Last commit: Today</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎆</span>
-                  <a href="https://dinhquangtrung.net/">Fun Stuff</a>
-                </div>
-                <div className={styles.subtitle}>Click for surprise</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Social Media</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🐦</span>
-                  <a href="https://twitter.com/tdinh_me">Twitter</a>
-                </div>
-                <div className={styles.subtitle}>{props.tweets}</div>
-              </li>
-              {/*
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>⌨️</span>
-                  <a href="https://twitch.tv/tonyisstreaming">Twitch.tv</a>
-                </div>
-                <div className={styles.subtitle}>Stream on weekends</div>
-              </li>
-              */}
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🖼️</span>
-                  <a href="https://instagram.com/tdinh_me">Instagram</a>
-                </div>
-                <div className={styles.subtitle}>Infrequent travel pics</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎥</span>
-                  <a href="https://www.youtube.com/gerosullivan">YouTube</a>
-                </div>
-                <div className={styles.subtitle}>{props.youtube}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💼</span>
-                  <a href="https://www.linkedin.com/in/tdinh-me/">LinkedIn</a>
-                </div>
-                <div className={styles.subtitle}>I post once a week</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Writings</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💌</span>
-                  <a href="https://news.gerosullivan.com">Newsletter</a>
-                </div>
-                <div className={styles.subtitle}>{props.newsletter}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>✏️</span>
-                  <a href="https://tdinh.notion.site/Tony-s-Notes-d1db498a88a9454abcc014fdd7a73f0c">
-                    Public Notes
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Notes, tips, and FAQs</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Other Places</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>😺</span>
-                  <a href="https://www.producthunt.com/@trungdq88">
-                    Product Hunt
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Products launched: 5</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💵</span>
-                  <a href="https://gerosullivan.gumroad.com/">Gumroad</a>
-                </div>
-                <div className={styles.subtitle}>Products created: 3</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🔨</span>
-                  <a href="https://www.indiehackers.com/gerosullivan">
-                    Indie Hackers
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Mostly lurking 😅</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💰</span>
-                  <a href="https://paypal.me/trungdq88">PayPal</a>
-                </div>
-                <div className={styles.subtitle}>Thanks for your tip!</div>
-              </li>
-            </ul>
-          </section>
         </div>
 
         <div style={{ margin: '40px 0', textAlign: 'center' }}>
@@ -353,31 +185,19 @@ export default function Home(props) {
 export async function getStaticProps() {
   try {
     const parser = new Parser();
-    const [newsletter, youtube] =
-      await Promise.all([
-        parser.parseURL('https://articles.gerosullivan.com/feed'),
-        parser.parseURL(
-          'https://www.youtube.com/feeds/videos.xml?channel_id=UCpLVesoQwiVbKJt_H3lgmIQ'
-        )
-      ]);
+    const newsletter = await parser.parseURL('https://articles.gerosullivan.com/feed')
 
     return {
       props: {
         newsletter: `Last issue: ${fromNow(
           new Date(newsletter.items[0].isoDate)
         )}`,
-        youtube: `Last video: ${fromNow(new Date(youtube.items[0].isoDate))}`,
         latest: [
           ...newsletter.items.map((item) => ({
             ...item,
             source: `Ger O'Sullivan's Newsletter`,
             color: '#5383ec',
-          })),
-          ...youtube.items.map((item) => ({
-            ...item,
-            source: `Ger O'Sullivan's Youtube Channel`,
-            color: '#ea3323',
-          })),
+          }))
         ].sort(
           (a, b) =>
             new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
