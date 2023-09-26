@@ -1,25 +1,19 @@
-import { useEffect, useState } from 'react';
 import moment from 'moment';
-import ReactTooltip from 'react-tooltip';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import SubscribeForm from '../components/SubscribeForm.js';
 import Parser from 'rss-parser';
 
 export default function Home(props) {
-  const [showTip, setShowTip] = useState(false);
 
-  useEffect(() => {
-    setShowTip(true);
-  }, []);
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Tony Dinh</title>
+        <title>Ger O'Sullivan</title>
         <meta
           name="description"
-          content="Welcome to my corner of the internet"
+          content="Welcome to my site"
         />
         <link
           rel="apple-touch-icon"
@@ -94,82 +88,38 @@ export default function Home(props) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <script
-          defer
-          type="text/javascript"
-          src="https://api.pirsch.io/pirsch.js"
-          id="pirschjs"
-          data-code="yojqyHBKGLOMJXGFnwWwP3IIWL7E8Ohv"
-        ></script>
       </Head>
 
       <main className={styles.main}>
         <section className={styles.intro}>
-          <img className={styles.avatar} src="/tonydinh.png" />
-          <h1 className={styles.title}>Tony Dinh</h1>
-          <p>Welcome to my corner of the internet!</p>
+          <img className={styles.avatar} src="/gerosullivan.jpg" />
+          <h1 className={styles.title}>Ger O'Sullivan</h1>
+          <p>EduTech veteran, software developer, consultant, AI enthusiast.</p>
         </section>
         <div style={{ marginBottom: 30 }}>
           {[
             {
-              link: 'https://news.tonydinh.com',
+              link: 'https://articles.gerosullivan.com',
               title: (
                 <span>
                   <span style={{ marginRight: 10 }}>💌</span>
-                  Monthly Newsletter (My Story)
+                  Newsletter
                 </span>
               ),
             },
             {
-              link: 'https://typingmind.com',
+              link: 'https://twitter.com/gerosullivan',
               title: (
                 <span>
-                  <span style={{ marginRight: 10 }}>🧠</span> Typing Mind
-                  (Better UI for ChatGPT)
+                  <span style={{ marginRight: 10 }}>𝕏</span> Twitter
                 </span>
               ),
             },
             {
-              link: 'https://devutils.app',
+              link: 'https://www.linkedin.com/in/gerosullivan',
               title: (
                 <span>
-                  <span style={{ marginRight: 10 }}>🧰</span> Developer Toolbox
-                  (macOS app)
-                </span>
-              ),
-            },
-            {
-              link: 'https://blackmagic.so',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>✨</span> Black Magic
-                  (Twitter SaaS)
-                </span>
-              ),
-            },
-            {
-              link: 'https://xnapper.com',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>📸</span> Beautiful
-                  screenshots (macOS app)
-                </span>
-              ),
-            },
-            {
-              link: 'https://tdinh.notion.site/Tony-s-Notes-d1db498a88a9454abcc014fdd7a73f0c',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>✏️</span> Micro-blog (FAQs,
-                  Notes)
-                </span>
-              ),
-            },
-            {
-              link: 'https://twitter.com/tdinh_me',
-              title: (
-                <span>
-                  <span style={{ marginRight: 10 }}>❤️</span> Find me on Twitter
+                  <span style={{ marginRight: 10 }}>🔗</span> LinkedIn
                 </span>
               ),
             },
@@ -178,182 +128,6 @@ export default function Home(props) {
               {item.title}
             </a>
           ))}
-        </div>
-        <div className={styles.sections}>
-          <section>
-            <h2>About Me</h2>
-            <ul className={styles.list}>
-              <li>
-                <span style={{ marginRight: '10px' }}>🧑</span>
-                29 years old
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>🇻🇳</span>
-                From Vietnam
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>👨‍💻</span>
-                Software Developer
-              </li>
-
-              <li>
-                <span style={{ marginRight: '10px' }}>🔨</span>
-                Full-time Indie Hacker
-              </li>
-              <li>
-                <span style={{ marginRight: '10px' }}>😻</span>
-                Cats > Dogs
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>My Products</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🧠</span>
-                  <a href="https://www.typingmind.com">TypingMind.com</a>
-                </div>
-                <div className={styles.subtitle}>A better UI for ChatGPT!</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🧰</span>
-                  <a href="https://devutils.app">DevUtils.app</a>
-                </div>
-                <div className={styles.subtitle}>{props.devutils}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎩</span>
-                  <a href="https://blackmagic.so">BlackMagic.so</a>
-                </div>
-                <div className={styles.subtitle}>{props.blackmagic}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>📸</span>
-                  <a href="https://xnapper.com">Xnapper</a>
-                </div>
-                <div className={styles.subtitle}>Released recently!</div>
-              </li>
-            </ul>
-            <h2>Code</h2>
-            <ul className={styles.list}>
-              <li>
-                <span style={{ marginRight: '10px' }}>⌨️</span>
-                <a href="https://github.com/trungdq88">GitHub</a>
-                <div className={styles.subtitle}>Last commit: Today</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎆</span>
-                  <a href="https://dinhquangtrung.net/">Fun Stuff</a>
-                </div>
-                <div className={styles.subtitle}>Click for surprise</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Social Media</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🐦</span>
-                  <a href="https://twitter.com/tdinh_me">Twitter</a>
-                </div>
-                <div className={styles.subtitle}>{props.tweets}</div>
-              </li>
-              {/*
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>⌨️</span>
-                  <a href="https://twitch.tv/tonyisstreaming">Twitch.tv</a>
-                </div>
-                <div className={styles.subtitle}>Stream on weekends</div>
-              </li>
-              */}
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🖼️</span>
-                  <a href="https://instagram.com/tdinh_me">Instagram</a>
-                </div>
-                <div className={styles.subtitle}>Infrequent travel pics</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🎥</span>
-                  <a href="https://www.youtube.com/tonydinh">YouTube</a>
-                </div>
-                <div className={styles.subtitle}>{props.youtube}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💼</span>
-                  <a href="https://www.linkedin.com/in/tdinh-me/">LinkedIn</a>
-                </div>
-                <div className={styles.subtitle}>I post once a week</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Writings</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💌</span>
-                  <a href="https://news.tonydinh.com">Newsletter</a>
-                </div>
-                <div className={styles.subtitle}>{props.newsletter}</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>✏️</span>
-                  <a href="https://tdinh.notion.site/Tony-s-Notes-d1db498a88a9454abcc014fdd7a73f0c">
-                    Public Notes
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Notes, tips, and FAQs</div>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Other Places</h2>
-            <ul className={styles.list}>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>😺</span>
-                  <a href="https://www.producthunt.com/@trungdq88">
-                    Product Hunt
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Products launched: 5</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💵</span>
-                  <a href="https://tonydinh.gumroad.com/">Gumroad</a>
-                </div>
-                <div className={styles.subtitle}>Products created: 3</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>🔨</span>
-                  <a href="https://www.indiehackers.com/tonydinh">
-                    Indie Hackers
-                  </a>
-                </div>
-                <div className={styles.subtitle}>Mostly lurking 😅</div>
-              </li>
-              <li>
-                <div>
-                  <span style={{ marginRight: '10px' }}>💰</span>
-                  <a href="https://paypal.me/trungdq88">PayPal</a>
-                </div>
-                <div className={styles.subtitle}>Thanks for your tip!</div>
-              </li>
-            </ul>
-          </section>
         </div>
 
         <div style={{ margin: '40px 0', textAlign: 'center' }}>
@@ -385,17 +159,6 @@ export default function Home(props) {
         </div>
       </main>
 
-      {showTip ? (
-        <ReactTooltip
-          multiline={true}
-          overridePosition={({ left, top }, _e, _t, node) => {
-            return {
-              top,
-              left: typeof node === 'string' ? left : Math.max(left, 0),
-            };
-          }}
-        />
-      ) : null}
       <style jsx global>{`
         html,
         body {
@@ -422,51 +185,19 @@ export default function Home(props) {
 export async function getStaticProps() {
   try {
     const parser = new Parser();
-    const [devutils, blackmagic, newsletter, youtube, tweets] =
-      await Promise.all([
-        parser.parseURL('https://devutils.app/changelog.rss'),
-        null, // parser.parseURL('https://newsletter.blackmagic.so/?format=rss'),
-        parser.parseURL('https://news.tonydinh.com/feed'),
-        parser.parseURL(
-          'https://www.youtube.com/feeds/videos.xml?channel_id=UCYOiXua3ot8x7D9uF7ipUPg'
-        ),
-        fetch(
-          'https://api.blackmagic.so/get_tweets_last_24hrs?id=331379561'
-        ).then((r) => r.json()),
-      ]);
+    const newsletter = await parser.parseURL('https://articles.gerosullivan.com/feed')
 
     return {
       props: {
-        devutils: `Last version: ${fromNow(
-          new Date(devutils.items[0].isoDate)
-        )}`,
-        blackmagic: `Last update: last week`,
         newsletter: `Last issue: ${fromNow(
           new Date(newsletter.items[0].isoDate)
         )}`,
-        youtube: `Last video: ${fromNow(new Date(youtube.items[0].isoDate))}`,
-        tweets: `${tweets.count} tweets last 48hrs`,
         latest: [
-          ...devutils.items.map((item) => ({
-            ...item,
-            source: 'DevUtils Product Updates',
-            color: '#5ba533',
-          })),
-          // ...blackmagic.items.map((item) => ({
-          //   ...item,
-          //   source: `BlackMagic.so Product Updates`,
-          //   color: '#333333',
-          // })),
           ...newsletter.items.map((item) => ({
             ...item,
-            source: `Tony Dinh's Newsletter`,
+            source: `Ger O'Sullivan's Newsletter`,
             color: '#5383ec',
-          })),
-          ...youtube.items.map((item) => ({
-            ...item,
-            source: `Tony Dinh's Youtube Channel`,
-            color: '#ea3323',
-          })),
+          }))
         ].sort(
           (a, b) =>
             new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime()
