@@ -94,7 +94,7 @@ export default function Home(props) {
         <section className={styles.intro}>
           <img className={styles.avatar} src="/gerosullivan.jpg" />
           <h1 className={styles.title}>Ger O'Sullivan</h1>
-          <p>EduTech veteran, software developer, consultant, AI enthusiast.</p>
+          <p>EdTech veteran, software developer, consultant, AI enthusiast.</p>
         </section>
         <div style={{ marginBottom: 30 }}>
           {[
@@ -120,6 +120,14 @@ export default function Home(props) {
               title: (
                 <span>
                   <span style={{ marginRight: 10 }}>🔗</span> LinkedIn
+                </span>
+              ),
+            },
+            {
+              link: 'https://cal.com/gerosullivan',
+              title: (
+                <span>
+                  <span style={{ marginRight: 10 }}>📆</span> Book meeting
                 </span>
               ),
             },
