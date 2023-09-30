@@ -94,7 +94,7 @@ export default function Home(props) {
         <section className={styles.intro}>
           <img className={styles.avatar} src="/gerosullivan.jpg" />
           <h1 className={styles.title}>Ger O'Sullivan</h1>
-          <p>EdTech veteran, software developer, consultant, AI enthusiast.</p>
+          <p>EdTech veteran, AI enthusiast, software developer, consultant.</p>
         </section>
         <div style={{ marginBottom: 30 }}>
           {[
